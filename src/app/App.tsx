@@ -1,6 +1,7 @@
 import { Todo } from 'modules/todo'
-import { ToggleTheme } from './components/toggle-theme/ToggleTheme'
+import { ToggleTheme } from './components/ToggleTheme'
 import { useTranslation } from 'react-i18next'
+import { ToggleLanguage } from './components/ToggleLanguage'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <h2>{t('Wellll')}</h2>
       <Todo />
       <ToggleTheme />
+      <ToggleLanguage />
     </div>
 
   )
