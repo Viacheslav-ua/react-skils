@@ -15,14 +15,14 @@ export const ToggleLanguage = () => {
     <div
       className="relative group "
     >
-      <p className="flex items-center gap-3 p-3 ">
+      <p className="flex items-center gap-3 p-2 ">
         {t('Language')}
         {(i18next?.language === 'en') && <FlagEn />}
         {(i18next?.language === 'uk') && <FlagUk />}
       </p>
        
-      <section className="border border-t-0 absolute bg-white bg-opacity-95 
-        opacity-0 hidden group-hover:block group-hover:opacity-100 transition-all duration-500">
+      <section className="border border-t-0 absolute bg-white 
+        opacity-0 hidden group-hover:block group-hover:opacity-100 transition-all duration-800">
         <ul>
           <li>
             <button
