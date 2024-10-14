@@ -9,6 +9,7 @@
     "paths": {
       "assets/*": ["assets/*"],
       "app/*": ["app/*"],
+      "pages/*": ["pages/*"],
       "modules/*": ["modules/*"],
       "shared/*": ["shared/*"],
     },

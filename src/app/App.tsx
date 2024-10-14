@@ -2,10 +2,11 @@
 import { Route, Routes } from 'react-router-dom'
 import { ROUTE_PATH } from 'shared/constants/routes'
 import { Layout } from './components/Layout'
-import { HomePage } from './pages/HomePage'
-import { SimpleTodoPage } from './pages/SimpleTodoPage'
-import { AdvancedTodoPage } from './pages/AdvancedTodoPage'
-import { NotFoundPage } from './pages/NotFoundPage'
+import { HomePage } from 'pages/HomePage'
+import { SimpleTodoPage } from 'pages/SimpleTodoPage'
+import { AdvancedTodoPage } from 'pages/AdvancedTodoPage'
+import { NotFoundPage } from 'pages/NotFoundPage'
+
 
 function App() {
 
