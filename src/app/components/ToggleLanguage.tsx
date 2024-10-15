@@ -1,10 +1,11 @@
 
+import clsx from "clsx";
 import i18next, { t } from "i18next"
 import { useState } from "react";
 import { STORAGE } from "shared/constants/storage-keys";
 import { FlagEn, FlagUk } from "shared/ui/Flags";
 
-export const ToggleLanguage = () => {
+export const ToggleLanguage = ({className}: {className?: string}) => {
   const [lang, setLang] = useState(i18next.language)
 
   function handelClick(selectedLang: string): void {
@@ -15,7 +16,7 @@ export const ToggleLanguage = () => {
   
   return (
     <div
-      className="relative group "
+      className={clsx('relative group', className)}
     >
       <p className="flex items-center gap-3 p-2 ">
         {t('Language')}
@@ -28,7 +29,8 @@ export const ToggleLanguage = () => {
         <ul>
           <li>
             <button
-              className="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-300"
+              className="w-full flex items-center gap-2 px-3 py-2 text-sm
+               hover:bg-gray-300 dark:text-black dark:hover:bg-gray-300 dark:bg-gray-100"
               onClick={() => handelClick('en')}
             >
               <FlagEn />
@@ -38,7 +40,8 @@ export const ToggleLanguage = () => {
           </li>
           <li>
             <button
-              className="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-300"
+              className="w-full flex items-center gap-2 px-3 py-2 text-sm 
+              hover:bg-gray-300 dark:text-black dark:hover:bg-gray-300 dark:bg-gray-100"
               onClick={() => handelClick('uk')}
             >
               <FlagUk />

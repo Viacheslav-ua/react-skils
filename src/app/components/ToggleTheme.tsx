@@ -1,7 +1,8 @@
+import clsx from "clsx";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export const ToggleTheme = () => {
+export const ToggleTheme = ({className}: {className?: string}) => {
 
   const [isDark, setIsDark] = useState(
     localStorage.getItem('rs-is-dark') === 'true'
@@ -19,10 +20,10 @@ export const ToggleTheme = () => {
   return (
     <button
       aria-label="Toggle Dark Mode"
-      className="flex items-center justify-center w-8 h-8 p-1 rounded "
+      className={clsx('flex items-center justify-center w-8 h-8 p-1 rounded', className)}
       onClick={() => setIsDark(!isDark)}
     >
-      {isDark ? <Moon size={24} className="text-white" /> : <Sun size={24} className="text-black" />}    
+      {isDark ? <Sun size={24} className="text-white" /> : <Moon size={24} className="text-black" />}    
     </button>
   )
 }

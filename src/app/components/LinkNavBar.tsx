@@ -14,10 +14,15 @@ export const LinkNavBar: React.FC<LinkNavBarProps> = ({children, to, className, 
   return (
     <Link to={to} {...props} 
       className={clsx( match 
-        ? "text-indigo-800 border-b-2 border-blue-800" 
-        : "hover:bg-gray-500",
+        ? 'text-blue-800 font-bold dark:text-yellow-200 cursor-default' 
+        : 'hover:underline',
+        'relative',
+        'dark:text-white font-medium text-lg',
         className)}
     >
+      <div className={clsx( match 
+        && 'absolute -bottom-3 h-1 w-full bg-blue-700 dark:bg-yellow-200' 
+      )}></div>
       {children}
     </Link>
   );
