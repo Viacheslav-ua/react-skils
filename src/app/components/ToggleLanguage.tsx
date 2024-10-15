@@ -1,22 +1,24 @@
 import i18next, { t } from "i18next"
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import { STORAGE } from "shared/constants/storage-keys";
 import { FlagEn, FlagUk } from "shared/ui/Flags";
-
 
 export const ToggleLanguage = () => {
   const [lang, setLang] = useState(i18next.language)
 
-  useEffect(() => {
-    i18next.changeLanguage(lang)
-    localStorage.setItem('rs-i18nextLng', lang)
-  }, [lang])
-
+  function handelClick(selectedLang: string): void {
+    i18next.changeLanguage(selectedLang)
+    localStorage.setItem(STORAGE.LANG, selectedLang)
+    setLang(selectedLang)
+  }
+  
   return (
     <div
       className="relative group "
     >
       <p className="flex items-center gap-3 p-2 ">
         {t('Language')}
+        <span>{lang}</span>
         {(i18next?.language === 'en') && <FlagEn />}
         {(i18next?.language === 'uk') && <FlagUk />}
       </p>
@@ -27,16 +29,17 @@ export const ToggleLanguage = () => {
           <li>
             <button
               className="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-300"
-              onClick={() => setLang('en')}
+              onClick={() => handelClick('en')}
             >
               <FlagEn />
               {t('English')}
+              
               </button>
           </li>
           <li>
             <button
               className="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-300"
-              onClick={() => setLang('uk')}
+              onClick={() => handelClick('uk')}
             >
               <FlagUk />
               {t('Ukrainian')}

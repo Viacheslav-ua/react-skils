@@ -7,16 +7,16 @@ interface LinkNavBarProps {
   className?: string;
   props?: LinkProps;
 }
-export const LinkNavBar: React.FC<LinkNavBarProps> = ({children, to, ...props}) => {
+export const LinkNavBar: React.FC<LinkNavBarProps> = ({children, to, className, ...props}) => {
 
   const match = useMatch(to);
 
   return (
     <Link to={to} {...props} 
       className={clsx( match 
-        ? "text-sky-800 border-b-2 border-sky-800" 
+        ? "text-indigo-800 border-b-2 border-blue-800" 
         : "hover:bg-gray-500",
-         props?.className)}
+        className)}
     >
       {children}
     </Link>
