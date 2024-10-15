@@ -1,5 +1,6 @@
+
 import i18next, { t } from "i18next"
-import { useState } from "react"
+import { useState } from "react";
 import { STORAGE } from "shared/constants/storage-keys";
 import { FlagEn, FlagUk } from "shared/ui/Flags";
 
@@ -18,9 +19,8 @@ export const ToggleLanguage = () => {
     >
       <p className="flex items-center gap-3 p-2 ">
         {t('Language')}
-        <span>{lang}</span>
-        {(i18next?.language === 'en') && <FlagEn />}
-        {(i18next?.language === 'uk') && <FlagUk />}
+        {(lang === 'en') && <FlagEn />}
+        {(lang === 'uk') && <FlagUk />}
       </p>
        
       <section className="border border-t-0 absolute bg-white 

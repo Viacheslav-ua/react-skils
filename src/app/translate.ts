@@ -1,6 +1,6 @@
 export const appEn = {
   "W": "Welcome to",
-  "Wellll": "All Wellll",
+  "Well": "All Wellll",
 
   Language: "Language",
   English: "English",
@@ -10,7 +10,7 @@ export const appEn = {
 export const appUk = {
   "W": "Ласкаво" +
         " і i18n",
-  "Wellll": "Все добреLL",
+  "Well": "Все добре",
 
   Language: "Мова",
   English: "Англійська",
