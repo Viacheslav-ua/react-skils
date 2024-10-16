@@ -1,7 +1,7 @@
+import { SimpleTodo } from "modules/simple-todo/SimpleTodo"
+
 export const SimpleTodoPage = () => {
   return (
-    <div>
-      <h1>Simple Todo</h1>
-    </div>
+    <SimpleTodo />
   )
 }
