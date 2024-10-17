@@ -26,13 +26,15 @@ export const TaskItem: React.FC<TaskItemProps> = ({ id, title, done }) => {
 
 
   return (
-    <div className='w-full flex items-center gap-1 mb-4 bg-[#dbe2ef] rounded-[5px]'>
-      <label className='grow flex items-center gap-4 py-2 px-6 cursor-pointer'>
+    <div className='w-full flex items-center gap-1 mb-4 bg-[#dbe2ef] hover:bg-opacity-90
+    transition-all rounded-[5px]'>
+      <label className='flex items-center gap-4 py-2 px-6 cursor-pointer'>
         <input type="checkbox" checked={done}
           disabled={isEditing}
           onChange={() => setIsDone(id)}
           // className='w-5 h-5'
         />
+      </label>
         {isEditing ? (
           <input
             type="text"
@@ -43,15 +45,15 @@ export const TaskItem: React.FC<TaskItemProps> = ({ id, title, done }) => {
                setIsEditing(false)
                updateTask(id, editedTitle) 
               }}}
-            className='w-full bg-inherit outline-none py-2 shadow-sm shadow-[#3F72AF]'
+            className='grow bg-stone-200 outline-none my-2 mx-1'
           />
         ) : (
-          <p className='py-2'>{title}</p>
+          <p className='py-2 grow'>{title}</p>
         )
 
         }
         {/* <p className='text-md'>{title}</p> */}
-      </label>
+      
 
       {isEditing ? (
         <>

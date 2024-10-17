@@ -16,10 +16,12 @@ const resources = {
     translation: Object.assign({}, 
     appUk, 
     simpleTodoUk,
-    
+
     )
   }
 };
+console.log(resources);
+
 
 i18n
   .use(initReactI18next)

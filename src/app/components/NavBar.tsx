@@ -3,8 +3,10 @@ import { LinkNavBar } from "./LinkNavBar"
 import { useTranslation } from 'react-i18next'
 import clsx from "clsx"
 
+
 export const NavBar = ({className}: {className?: string}) => {
   const { t } = useTranslation()
+  
   return (
     <nav className={clsx('flex items-center gap-2 w-max', className)}>
       <LinkNavBar to={ROUTE_PATH.HOME}>{t('About')}</LinkNavBar>      

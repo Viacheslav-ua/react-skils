@@ -3,8 +3,8 @@ import { Header } from "./Header"
 
 export const Layout = () => {
   return (
-    <div>
-      <Header />
+    <div className="dark:bg-slate-700 h-screen">
+      <Header className="sticky top-0 z-10 border-b border-b-stone-400" />
       <Outlet />
     </div>
   )
