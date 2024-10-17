@@ -2,13 +2,16 @@ import clsx from "clsx"
 import { useTranslation } from 'react-i18next'
 import { InputPlus } from "./components/InputPlus"
 import { TaskItem } from "./components/TaskItem"
-import { useTodoStore } from "./store/useTodoStore"
 import { BtnFunc } from "./components/BtnFunc"
+import { InputFilter } from "./components/InputFilter"
+import { useState } from "react"
+import { Task } from "./store/types"
 
 
 export const SimpleTodo = ({className}: {className?: string}) => {
-  const entities = useTodoStore(state => state.entities)
+  const [filteredTasks, setFilteredTasks] = useState<Task[]>([])
   const { t } = useTranslation()
+  
 
   return (
     <article className={clsx(
@@ -27,11 +30,11 @@ export const SimpleTodo = ({className}: {className?: string}) => {
       <section className="w-full pb-4 flex gap-4">
         <BtnFunc />
         <InputPlus />
-        <InputPlus />
+        <InputFilter setFilteredTasks={setFilteredTasks} className="w-[400px]" />
       </section>
       <section className="w-full">
-        {!entities.length && <p>There is no one task yet...</p>}
-        {entities.map(task => 
+        {!filteredTasks.length && <p className="dark:text-slate-200">{t('NoOneTask')}</p>}
+        {filteredTasks.map(task => 
           <TaskItem key={task.id} title={task.title} id={task.id} done={task.isDone} />
         )}
       </section>

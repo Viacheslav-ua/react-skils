@@ -4,7 +4,7 @@ import { createId } from '@paralleldrive/cuid2'
 import { SimpleTodoStore } from './types'
 import { STORAGE } from 'shared/constants/storage-keys'
 
-export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set) => ({
+export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set, get) => ({
 
   entities: [
     {
@@ -16,6 +16,19 @@ export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set) => 
   ],
 
   filter: '',
+
+  setFilter: (filter) => {
+    set((state) => ({
+      filter: filter
+    }))
+  },
+  getFilteredEntities: () => {
+    if (get().filter === '') {
+      return get().entities
+    }
+    return get().entities.filter((task) => task.title.includes(get().filter))
+  },
+    
   addTask: (title) => {
     if (!title) return
     const newTask = {
