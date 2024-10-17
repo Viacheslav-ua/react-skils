@@ -5,44 +5,58 @@ import { SimpleTodoStore } from './types'
 import { STORAGE } from 'shared/constants/storage-keys'
 
 export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set) => ({
-  
+
   entities: [
     {
-      114: {
-        id: createId(),
-        title: 'Task 1',
-        done: false,
-        createdAt: Date.now(),
-    }}
+      id: createId(),
+      title: 'Task 1',
+      isDone: false,
+      createdAt: Date.now(),
+    }
   ],
+
+  filter: '',
   addTask: (title) => {
+    if (!title) return
     const newTask = {
       id: createId(),
       title,
-      done: false,
+      isDone: false,
       createdAt: Date.now(),
     }
-    const newEntity  = {[newTask.createdAt]: newTask}
     set((state) => ({
-      // ...state,
-      entities : [newEntity, ...state.entities]
+      entities: [newTask, ...state.entities]
     }))
   },
-  // updateTask: (id, title) => {
-  //   set((state) => ({
-  //     tasks: state.tasks.map((task) => {
-  //       return {
-  //         ...task,
-  //         title: task.id === id ? title : task.title
-  //       }
-  //     })
-  //   }))
-  // },
-  // removeTask: (id) => {
-  //   set((state) => ({ tasks: state.tasks.filter((task) => task.id !== id) }))
-  // },
+  updateTask: (id, title) => {
+    set((state) => ({
+      entities: state.entities.map((task) => {
+        return {
+          ...task,
+          title: task.id === id ? title : task.title
+        }
+      })
+    }))
+  },
+  removeTask: (id) => {
+    set((state) => ({ entities: state.entities.filter((task) => task.id !== id) }))
+  },
 
   // removeAllDone: () => {
   //   set((state) => ({ tasks: state.tasks.filter((task) => !task.done) }))
-  // }
+  // },
+
+  setIsDone: (id) => {
+    set((state) => ({
+      entities: state.entities.map((task) => {
+        if (task.id === id) {
+          return {
+            ...task,
+            isDone: !task.isDone
+          }
+        }
+        return task
+      })
+    }))
+  },
 }), { name: STORAGE.SIMPLE_TODO })))
