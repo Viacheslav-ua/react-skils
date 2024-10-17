@@ -1,17 +1,16 @@
 export const appEn = {
-  "W": "Welcome to",
-  "Wellll": "All Wellll",
-
+  About: "About",
+  Simple: "Simple Todo",
+  Advanced: "Advanced Todo",
   Language: "Language",
   English: "English",
   Ukrainian: "Ukrainian",
 }
 
 export const appUk = {
-  "W": "Ласкаво" +
-        " і i18n",
-  "Wellll": "Все добреLL",
-
+  About: "Про сайт",
+  Simple: "Простий Todo",
+  Advanced: "Розширенний Todo",
   Language: "Мова",
   English: "Англійська",
   Ukrainian: "Українська",
