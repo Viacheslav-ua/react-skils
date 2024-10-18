@@ -55,10 +55,6 @@ export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set, get
     set((state) => ({ entities: state.entities.filter((task) => task.id !== id) }))
   },
 
-  // removeAllDone: () => {
-  //   set((state) => ({ tasks: state.tasks.filter((task) => !task.done) }))
-  // },
-
   setIsDone: (id) => {
     set((state) => ({
       entities: state.entities.map((task) => {

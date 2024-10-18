@@ -4,21 +4,28 @@ import { InputPlus } from "./components/InputPlus"
 import { TaskItem } from "./components/TaskItem"
 import { BtnFunc } from "./components/BtnFunc"
 import { InputFilter } from "./components/InputFilter"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Task } from "./store/types"
+import { useTodoStore } from "./store/useTodoStore"
 
 
-export const SimpleTodo = ({className}: {className?: string}) => {
+export const SimpleTodo = ({ className }: { className?: string }) => {
   const [filteredTasks, setFilteredTasks] = useState<Task[]>([])
+  const removeTask = useTodoStore(state => state.removeTask)
   const { t } = useTranslation()
-  
+
+  useEffect(() => {
+    
+  }, [removeTask])
+
+
 
   return (
     <article className={clsx(
       'bg-white min-w-[600px] px-14 pt-5 pb-8 flex flex-col',
-      ' items-left justify-center', 
+      ' items-left justify-center',
       className,
-      )}>
+    )}>
 
       <div className="relative">
         <h1 className="text-[40px] mb-[0.3em] capitalize dark:text-lime-200">{t('ToDoList')}</h1>
@@ -26,7 +33,7 @@ export const SimpleTodo = ({className}: {className?: string}) => {
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi tempore incidunt odio temporibus similique fuga, deserunt, veniam corporis modi suscipit error inventore, at quod quos facere expedita unde quas amet?
         </p>
       </div>
-      
+
       <section className="w-full pb-4 flex gap-4">
         <BtnFunc />
         <InputPlus />
@@ -34,8 +41,14 @@ export const SimpleTodo = ({className}: {className?: string}) => {
       </section>
       <section className="w-full">
         {!filteredTasks.length && <p className="dark:text-slate-200">{t('NoOneTask')}</p>}
-        {filteredTasks.map(task => 
-          <TaskItem key={task.id} title={task.title} id={task.id} done={task.isDone} />
+        {filteredTasks.map(task =>
+          <TaskItem
+            key={task.id}
+            title={task.title}
+            id={task.id}
+            done={task.isDone}
+            removeTask={() => removeTask(task.id)}
+          />
         )}
       </section>
     </article>

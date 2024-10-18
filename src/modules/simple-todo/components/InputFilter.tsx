@@ -3,9 +3,10 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useTodoStore } from '../store/useTodoStore';
 import { useTranslation } from 'react-i18next'
 import { useDebounce } from 'shared/lib/debounce';
-import { Task } from '../store/types';
+import { SimpleTodoStore, Task } from '../store/types';
 import clsx from 'clsx';
 
+const getFilteredEntitiesSelector = (state: SimpleTodoStore) => state.getFilteredEntities
 interface InputFilterProps {
   setFilteredTasks: Dispatch<SetStateAction<Task[]>>
   className?: string
@@ -16,7 +17,7 @@ export const InputFilter: React.FC<InputFilterProps> = ({setFilteredTasks, class
   const [value, setValue] = useState('');
   const debouncedValue = useDebounce(value, 700)
   const setFilter = useTodoStore(state => state.setFilter)
-  const getFilteredEntities = useTodoStore(state => state.getFilteredEntities)
+  const getFilteredEntities = useTodoStore(getFilteredEntitiesSelector)
 
   const { t } = useTranslation()
 
