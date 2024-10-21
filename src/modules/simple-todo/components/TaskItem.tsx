@@ -1,7 +1,11 @@
 import { Trash2, Pencil, X, Check } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useTodoStore } from '../store/useTodoStore';
+import { SimpleTodoStore } from '../store/types';
 
+const removeTaskSelector = (state: SimpleTodoStore) => state.removeTask
+const updateTaskSelector = (state: SimpleTodoStore) => state.updateTask
+const setIsDoneSelector = (state: SimpleTodoStore) => state.setIsDone
 interface TaskItemProps {
   id: string
   title: string
@@ -14,9 +18,9 @@ export const TaskItem: React.FC<TaskItemProps> = ({ id, title, done }) => {
   const [editedTitle, setEditedTitle] = useState(title);
   const editTitleInputRef = useRef<HTMLInputElement>(null);
 
-  const setIsDone = useTodoStore(state => state.setIsDone)
-  const updateTask = useTodoStore(state => state.updateTask)
-  const removeTask = useTodoStore(state => state.removeTask)
+  const setIsDone = useTodoStore(setIsDoneSelector)
+  const updateTask = useTodoStore(updateTaskSelector)
+  const removeTask = useTodoStore(removeTaskSelector)
 
   useEffect(() => {
     if (isEditing) {
@@ -32,7 +36,6 @@ export const TaskItem: React.FC<TaskItemProps> = ({ id, title, done }) => {
         <input type="checkbox" checked={done}
           disabled={isEditing}
           onChange={() => setIsDone(id)}
-          // className='w-5 h-5'
         />
       </label>
         {isEditing ? (
@@ -52,8 +55,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ id, title, done }) => {
         )
 
         }
-        {/* <p className='text-md'>{title}</p> */}
-      
+            
 
       {isEditing ? (
         <>

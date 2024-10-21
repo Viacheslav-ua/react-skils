@@ -15,20 +15,6 @@ export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set, get
     }
   ],
 
-  filter: '',
-
-  setFilter: (filter) => {
-    set((state) => ({
-      filter: filter
-    }))
-  },
-  getFilteredEntities: () => {
-    if (get().filter === '') {
-      return get().entities
-    }
-    return get().entities.filter((task) => task.title.includes(get().filter))
-  },
-    
   addTask: (title) => {
     if (!title) return
     const newTask = {
@@ -38,21 +24,27 @@ export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set, get
       createdAt: Date.now(),
     }
     set((state) => ({
-      entities: [newTask, ...state.entities]
+      entities: [newTask, ...state.entities],
     }))
   },
   updateTask: (id, title) => {
     set((state) => ({
       entities: state.entities.map((task) => {
-        return {
-          ...task,
-          title: task.id === id ? title : task.title
+        
+        if (task.id === id) {
+          return {
+            ...task,
+            title: title,
+          }
         }
+        return task
       })
     }))
   },
   removeTask: (id) => {
-    set((state) => ({ entities: state.entities.filter((task) => task.id !== id) }))
+    set((state) => ({ 
+      entities: state.entities.filter((task) => task.id !== id),
+    }))
   },
 
   setIsDone: (id) => {
@@ -61,7 +53,7 @@ export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set, get
         if (task.id === id) {
           return {
             ...task,
-            isDone: !task.isDone
+            isDone: !task.isDone,
           }
         }
         return task

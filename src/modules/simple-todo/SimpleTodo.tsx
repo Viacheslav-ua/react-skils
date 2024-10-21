@@ -4,20 +4,23 @@ import { InputPlus } from "./components/InputPlus"
 import { TaskItem } from "./components/TaskItem"
 import { BtnFunc } from "./components/BtnFunc"
 import { InputFilter } from "./components/InputFilter"
-import { useEffect, useState } from "react"
-import { Task } from "./store/types"
+import { useState } from "react"
+import { SimpleTodoStore } from "./store/types"
 import { useTodoStore } from "./store/useTodoStore"
 
+const entitiesSelector = (state: SimpleTodoStore) => state.entities
 
 export const SimpleTodo = ({ className }: { className?: string }) => {
-  const [filteredTasks, setFilteredTasks] = useState<Task[]>([])
-  const removeTask = useTodoStore(state => state.removeTask)
+  const [filter, setFilter] = useState('')
+  const entities = useTodoStore(entitiesSelector)
   const { t } = useTranslation()
 
-  useEffect(() => {
-    
-  }, [removeTask])
+  const filteredEntities = ( filter === '') 
+    ? entities 
+    : entities.filter(task => task.title.toLowerCase().includes(filter.toLowerCase()))
 
+  console.log('render', filter);
+  
 
 
   return (
@@ -37,17 +40,16 @@ export const SimpleTodo = ({ className }: { className?: string }) => {
       <section className="w-full pb-4 flex gap-4">
         <BtnFunc />
         <InputPlus />
-        <InputFilter setFilteredTasks={setFilteredTasks} className="w-[400px]" />
+        <InputFilter setFilter={setFilter} className="w-[400px]" />
       </section>
       <section className="w-full">
-        {!filteredTasks.length && <p className="dark:text-slate-200">{t('NoOneTask')}</p>}
-        {filteredTasks.map(task =>
+        {!filteredEntities.length && <p className="dark:text-slate-200">{t('NoOneTask')}</p>}
+        {filteredEntities.map(task =>
           <TaskItem
             key={task.id}
             title={task.title}
             id={task.id}
             done={task.isDone}
-            removeTask={() => removeTask(task.id)}
           />
         )}
       </section>
