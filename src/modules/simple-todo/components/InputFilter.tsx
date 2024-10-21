@@ -1,6 +1,6 @@
 import { FilterX } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'shared/lib/debounce';
 import clsx from 'clsx';
 

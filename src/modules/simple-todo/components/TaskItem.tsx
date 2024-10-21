@@ -5,20 +5,20 @@ import { SimpleTodoStore } from '../store/types';
 
 const removeTaskSelector = (state: SimpleTodoStore) => state.removeTask
 const updateTaskSelector = (state: SimpleTodoStore) => state.updateTask
-const setIsDoneSelector = (state: SimpleTodoStore) => state.setIsDone
+const setIsSelectedSelector = (state: SimpleTodoStore) => state.setIsSelected
 interface TaskItemProps {
   id: string
   title: string
-  done: boolean
+  isSelected: boolean
 }
 
-export const TaskItem: React.FC<TaskItemProps> = ({ id, title, done }) => {
+export const TaskItem: React.FC<TaskItemProps> = ({ id, title, isSelected }) => {
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(title);
   const editTitleInputRef = useRef<HTMLInputElement>(null);
 
-  const setIsDone = useTodoStore(setIsDoneSelector)
+  const setIsSelected = useTodoStore(setIsSelectedSelector)
   const updateTask = useTodoStore(updateTaskSelector)
   const removeTask = useTodoStore(removeTaskSelector)
 
@@ -33,9 +33,9 @@ export const TaskItem: React.FC<TaskItemProps> = ({ id, title, done }) => {
     <div className='w-full flex items-center gap-1 mb-4 bg-[#dbe2ef] hover:bg-opacity-90
     transition-all rounded-[5px]'>
       <label className='flex items-center gap-4 py-2 px-6 cursor-pointer'>
-        <input type="checkbox" checked={done}
+        <input type="checkbox" checked={isSelected}
           disabled={isEditing}
-          onChange={() => setIsDone(id)}
+          onChange={() => setIsSelected(id)}
         />
       </label>
         {isEditing ? (

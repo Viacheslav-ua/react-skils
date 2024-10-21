@@ -19,10 +19,6 @@ export const SimpleTodo = ({ className }: { className?: string }) => {
     ? entities 
     : entities.filter(task => task.title.toLowerCase().includes(filter.toLowerCase()))
 
-  console.log('render', filter);
-  
-
-
   return (
     <article className={clsx(
       'bg-white min-w-[600px] px-14 pt-5 pb-8 flex flex-col',
@@ -49,7 +45,7 @@ export const SimpleTodo = ({ className }: { className?: string }) => {
             key={task.id}
             title={task.title}
             id={task.id}
-            done={task.isDone}
+            isSelected={task.isSelected}
           />
         )}
       </section>

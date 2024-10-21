@@ -4,13 +4,13 @@ import { createId } from '@paralleldrive/cuid2'
 import { SimpleTodoStore } from './types'
 import { STORAGE } from 'shared/constants/storage-keys'
 
-export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set, get) => ({
+export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set) => ({
 
   entities: [
     {
       id: createId(),
       title: 'Task 1',
-      isDone: false,
+      isSelected: false,
       createdAt: Date.now(),
     }
   ],
@@ -20,7 +20,7 @@ export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set, get
     const newTask = {
       id: createId(),
       title,
-      isDone: false,
+      isSelected: false,
       createdAt: Date.now(),
     }
     set((state) => ({
@@ -47,17 +47,43 @@ export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set, get
     }))
   },
 
-  setIsDone: (id) => {
+  setIsSelected: (id) => {
     set((state) => ({
       entities: state.entities.map((task) => {
         if (task.id === id) {
           return {
             ...task,
-            isDone: !task.isDone,
+            isSelected: !task.isSelected,
           }
         }
         return task
       })
     }))
   },
+
+  removeAllSelected: () => {
+    set((state) => ({ 
+      entities: state.entities.filter((task) => !task.isSelected),
+    }))
+  },
+  selectAll: () => {
+    set((state) => ({
+      entities: state.entities.map((task) => {
+        return {
+          ...task,
+          isSelected: true,
+        }
+      })
+    }))
+  },  
+  clearAll: () => {
+    set((state) => ({
+      entities: state.entities.map((task) => {
+        return {  
+          ...task,
+          isSelected: false,          
+        }
+      })
+    }))
+  }
 }), { name: STORAGE.SIMPLE_TODO })))
