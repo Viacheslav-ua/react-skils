@@ -1,6 +1,6 @@
 
 
-export type Task = {
+type TaskDto = {
   id: string
   title: string
   isSelected: boolean
@@ -8,7 +8,7 @@ export type Task = {
 }
 
 export interface SimpleTodoStore {
-  entities: Task[]
+  entities: TaskDto[]
 
   addTask: (title: string) => void
   updateTask: (id: string, title: string) => void
