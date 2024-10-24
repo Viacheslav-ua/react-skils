@@ -3,17 +3,10 @@ import { devtools, persist } from 'zustand/middleware'
 import { createId } from '@paralleldrive/cuid2'
 import { SimpleTodoStore } from './types'
 import { STORAGE } from 'shared/constants/storage-keys'
+import initialEntities from './db.json'
 
 export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set) => ({
-
-  entities: [
-    {
-      id: createId(),
-      title: 'Task 1',
-      isSelected: false,
-      createdAt: Date.now(),
-    }
-  ],
+  entities: initialEntities,
 
   addTask: (title) => {
     if (!title) return

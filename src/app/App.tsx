@@ -8,7 +8,7 @@ import { AdvancedTodoPage } from 'pages/AdvancedTodoPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 
 
-function App() {
+export const App  = () => {
 
   return (
     <Routes>
@@ -21,5 +21,3 @@ function App() {
     </Routes>
   )
 }
-
-export default App
