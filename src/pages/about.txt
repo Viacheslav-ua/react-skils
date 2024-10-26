@@ -1,0 +1,14 @@
+Этот пет-проект создан для отработки навыков программирования используя React.
+Я начал его с простого To Do листа и планирую дальше добавлять другие функции,
+на отдельных страницах углубляясь в React-технологии.
+Основной стек проекта: React, Tailwind, Zustand, TanStack Query, Vite, Vitest
+
+Цей проект створений для відпрацювання навичок програмування з використанням React.
+Я почав його з простого списка To Do і планую далі додавати інші функції, 
+на інших сторінках заглиблюючись у React-технології.
+Основний стек проекту: React, Tailwind, Zustand, TanStack Query, Vite, Vitest
+
+This pet project is designed to practice programming skills using React.
+I began doing its with a simple To Do list and plan to continue by adding new features and
+immersing themselves in React technologies on the other pages.
+The main project stack: React, Tailwind, Zustand, TanStack Query, Vite, Vitest
