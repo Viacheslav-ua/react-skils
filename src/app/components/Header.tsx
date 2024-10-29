@@ -12,11 +12,11 @@ export const Header = ({className}: {className?: string}) => {
       <Logo className="ml-5" />
       <NavBar className="ml-10 text-lg gap-6" />
       <div className="ml-auto flex items-center">
-        <div className="w-16 h-7 bg-rose-200">
+        <div className="">
 
         </div>
         <ToggleLanguage className="ml-4 min-w-[120px]" />
-        <ToggleTheme className="mx-4" />
+        <ToggleTheme className="ml-4 mr-12" />
       </div>
     </header>
   )

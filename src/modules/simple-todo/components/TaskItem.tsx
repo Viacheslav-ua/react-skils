@@ -1,22 +1,26 @@
 import { Trash2, Pencil, X, Check } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useTodoStore } from '../store/useTodoStore';
+import { SimpleTodoStore } from '../store/types';
 
+const removeTaskSelector = (state: SimpleTodoStore) => state.removeTask
+const updateTaskSelector = (state: SimpleTodoStore) => state.updateTask
+const setIsSelectedSelector = (state: SimpleTodoStore) => state.setIsSelected
 interface TaskItemProps {
   id: string
   title: string
-  done: boolean
+  isSelected: boolean
 }
 
-export const TaskItem: React.FC<TaskItemProps> = ({ id, title, done }) => {
+export const TaskItem: React.FC<TaskItemProps> = ({ id, title, isSelected }) => {
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(title);
   const editTitleInputRef = useRef<HTMLInputElement>(null);
 
-  const setIsDone = useTodoStore(state => state.setIsDone)
-  const updateTask = useTodoStore(state => state.updateTask)
-  const removeTask = useTodoStore(state => state.removeTask)
+  const setIsSelected = useTodoStore(setIsSelectedSelector)
+  const updateTask = useTodoStore(updateTaskSelector)
+  const removeTask = useTodoStore(removeTaskSelector)
 
   useEffect(() => {
     if (isEditing) {
@@ -29,10 +33,9 @@ export const TaskItem: React.FC<TaskItemProps> = ({ id, title, done }) => {
     <div className='w-full flex items-center gap-1 mb-4 bg-[#dbe2ef] hover:bg-opacity-90
     transition-all rounded-[5px]'>
       <label className='flex items-center gap-4 py-2 px-6 cursor-pointer'>
-        <input type="checkbox" checked={done}
+        <input type="checkbox" checked={isSelected}
           disabled={isEditing}
-          onChange={() => setIsDone(id)}
-          // className='w-5 h-5'
+          onChange={() => setIsSelected(id)}
         />
       </label>
         {isEditing ? (
@@ -52,8 +55,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ id, title, done }) => {
         )
 
         }
-        {/* <p className='text-md'>{title}</p> */}
-      
+            
 
       {isEditing ? (
         <>

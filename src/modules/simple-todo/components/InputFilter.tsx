@@ -1,28 +1,22 @@
 import { FilterX } from 'lucide-react';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { useTodoStore } from '../store/useTodoStore';
-import { useTranslation } from 'react-i18next'
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'shared/lib/debounce';
-import { Task } from '../store/types';
 import clsx from 'clsx';
 
 interface InputFilterProps {
-  setFilteredTasks: Dispatch<SetStateAction<Task[]>>
+  setFilter:(filter: string) => void
   className?: string
 }
 
-export const InputFilter: React.FC<InputFilterProps> = ({setFilteredTasks, className}) => {
+export const InputFilter: React.FC<InputFilterProps> = ({ setFilter, className }) => {
 
   const [value, setValue] = useState('');
-  const debouncedValue = useDebounce(value, 700)
-  const setFilter = useTodoStore(state => state.setFilter)
-  const getFilteredEntities = useTodoStore(state => state.getFilteredEntities)
-
+  const debouncedValue = useDebounce(value, 600)
   const { t } = useTranslation()
 
   useEffect(() => {
     setFilter(debouncedValue)
-    setFilteredTasks(getFilteredEntities)
   }, [debouncedValue])
 
 

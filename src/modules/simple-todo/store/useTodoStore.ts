@@ -3,73 +3,80 @@ import { devtools, persist } from 'zustand/middleware'
 import { createId } from '@paralleldrive/cuid2'
 import { SimpleTodoStore } from './types'
 import { STORAGE } from 'shared/constants/storage-keys'
+import initialEntities from './db.json'
 
-export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set, get) => ({
+export const useTodoStore = create<SimpleTodoStore>()(devtools(persist((set) => ({
+  entities: initialEntities,
 
-  entities: [
-    {
-      id: createId(),
-      title: 'Task 1',
-      isDone: false,
-      createdAt: Date.now(),
-    }
-  ],
-
-  filter: '',
-
-  setFilter: (filter) => {
-    set((state) => ({
-      filter: filter
-    }))
-  },
-  getFilteredEntities: () => {
-    if (get().filter === '') {
-      return get().entities
-    }
-    return get().entities.filter((task) => task.title.includes(get().filter))
-  },
-    
   addTask: (title) => {
     if (!title) return
     const newTask = {
       id: createId(),
       title,
-      isDone: false,
+      isSelected: false,
       createdAt: Date.now(),
     }
     set((state) => ({
-      entities: [newTask, ...state.entities]
+      entities: [newTask, ...state.entities],
     }))
   },
   updateTask: (id, title) => {
     set((state) => ({
       entities: state.entities.map((task) => {
-        return {
-          ...task,
-          title: task.id === id ? title : task.title
-        }
-      })
-    }))
-  },
-  removeTask: (id) => {
-    set((state) => ({ entities: state.entities.filter((task) => task.id !== id) }))
-  },
-
-  // removeAllDone: () => {
-  //   set((state) => ({ tasks: state.tasks.filter((task) => !task.done) }))
-  // },
-
-  setIsDone: (id) => {
-    set((state) => ({
-      entities: state.entities.map((task) => {
+        
         if (task.id === id) {
           return {
             ...task,
-            isDone: !task.isDone
+            title: title,
           }
         }
         return task
       })
     }))
   },
+  removeTask: (id) => {
+    set((state) => ({ 
+      entities: state.entities.filter((task) => task.id !== id),
+    }))
+  },
+
+  setIsSelected: (id) => {
+    set((state) => ({
+      entities: state.entities.map((task) => {
+        if (task.id === id) {
+          return {
+            ...task,
+            isSelected: !task.isSelected,
+          }
+        }
+        return task
+      })
+    }))
+  },
+
+  removeAllSelected: () => {
+    set((state) => ({ 
+      entities: state.entities.filter((task) => !task.isSelected),
+    }))
+  },
+  selectAll: () => {
+    set((state) => ({
+      entities: state.entities.map((task) => {
+        return {
+          ...task,
+          isSelected: true,
+        }
+      })
+    }))
+  },  
+  clearAll: () => {
+    set((state) => ({
+      entities: state.entities.map((task) => {
+        return {  
+          ...task,
+          isSelected: false,          
+        }
+      })
+    }))
+  }
 }), { name: STORAGE.SIMPLE_TODO })))
