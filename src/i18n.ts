@@ -3,12 +3,14 @@ import { initReactI18next } from "react-i18next";
 import { appEn, appUk } from 'app/translate'
 import { STORAGE } from "shared/constants/storage-keys";
 import { simpleTodoEn, simpleTodoUk } from "modules/simple-todo/translate";
+import { pagesEn, pagesUk } from "pages/translate";
 
 const resources = {
   en: {
     translation: Object.assign({}, 
     appEn, 
     simpleTodoEn,
+    pagesEn,
 
     )
   },
@@ -16,6 +18,7 @@ const resources = {
     translation: Object.assign({}, 
     appUk, 
     simpleTodoUk,
+    pagesUk,
 
     )
   }

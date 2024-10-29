@@ -7,6 +7,7 @@ export const simpleTodoEn = {
   ClearAll: "Clear all",
   DeleteSelected: "Delete selected",
   ResetStorage: "Reset storage",
+  AboutSimpleTodo: "Here is a simple To Do list implemented using Zustand and the data is stored in the Local Storage.",
 }
 
 export const simpleTodoUk = {
@@ -18,4 +19,5 @@ export const simpleTodoUk = {
   ClearAll: "Очистити все",
   DeleteSelected: "Видалити вибрані",
   ResetStorage: "Скинути сховище",
+  AboutSimpleTodo: "Тут реалізований простий To Do лист з використанням Zustand, дані зберігаються в Локальному Сховищі.",
 }

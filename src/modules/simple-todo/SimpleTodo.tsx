@@ -29,7 +29,7 @@ export const SimpleTodo = ({ className }: { className?: string }) => {
       <div className="relative">
         <h1 className="text-[40px] mb-[0.3em] capitalize dark:text-lime-200">{t('ToDoList')}</h1>
         <p className="text-sm px-6 py-2 rounded-lg absolute top-[-10px] left-[450px]  bg-lime-200">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi tempore incidunt odio temporibus similique fuga, deserunt, veniam corporis modi suscipit error inventore, at quod quos facere expedita unde quas amet?
+          {t('AboutSimpleTodo')}
         </p>
       </div>
 
