@@ -21,7 +21,8 @@ export const InputPlus = () => {
       }}
     >
       <input 
-        type="text" 
+        type="text"
+        data-testid="new-todo-input" 
         placeholder={t('HereAddTask')} 
         onChange={(event) => setValueTitle(event.target.value)}
         value={valueTitle}
