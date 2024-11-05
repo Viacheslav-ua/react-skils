@@ -6,6 +6,7 @@ import { HomePage } from 'pages/HomePage'
 import { SimpleTodoPage } from 'pages/SimpleTodoPage'
 import { AdvancedTodoPage } from 'pages/AdvancedTodoPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
+import { ExamplePage } from 'pages/ExamplePage'
 
 
 export const App  = () => {
@@ -16,6 +17,7 @@ export const App  = () => {
         <Route path={ROUTE_PATH.HOME} element={<HomePage />}/>
         <Route path={ROUTE_PATH.SIMPLE_TODO} element={<SimpleTodoPage />}/>
         <Route path={ROUTE_PATH.ADVANCED_TODO} element={<AdvancedTodoPage />}/>
+        <Route path={'/example'} element={<ExamplePage />}/>
         <Route path={ROUTE_PATH.NOT_FOUND} element={<NotFoundPage />}/>
       </Route>
     </Routes>

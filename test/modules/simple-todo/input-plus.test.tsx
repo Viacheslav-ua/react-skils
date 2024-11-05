@@ -11,19 +11,18 @@ describe("Тестируем InputPlus", () => {
     let input: HTMLInputElement;
 
 
-    beforeAll(() => {
+    beforeEach(() => {
       render(<InputPlus />)
       input = screen.queryByPlaceholderText('HereAddTask') as HTMLInputElement
     })
-
 
     test("Тестируем default value", () => {
       expect(input.value).toBe('');
     });
 
     test("Тестируем ввод с клавиатуры", async () => {
-      await userEvent.type(input, 'keyboard ENTER');
-      expect(input.value).toBe('keyboard ENTER');
+      await userEvent.type(input, '31we');
+      expect(input.value).toEqual('31we');
     });
 
     test('NumberInput use html tag input', () => {

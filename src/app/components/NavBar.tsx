@@ -12,6 +12,7 @@ export const NavBar = ({className}: {className?: string}) => {
       <LinkNavBar to={ROUTE_PATH.HOME}>{t('About')}</LinkNavBar>      
       <LinkNavBar to={ROUTE_PATH.SIMPLE_TODO}>{t('Simple')}</LinkNavBar>
       <LinkNavBar to={ROUTE_PATH.ADVANCED_TODO}>{t('Advanced')}</LinkNavBar>
+      <LinkNavBar to={'/example'}>Example</LinkNavBar>
     </nav>
   )
 }
