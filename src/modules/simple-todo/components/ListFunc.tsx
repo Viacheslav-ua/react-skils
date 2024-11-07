@@ -21,7 +21,7 @@ export const ListFunc = ({className}: {className?: string}) => {
   const { t } = useTranslation();
 
   return (
-    <ul className={clsx('border border-lime-700  border-t-0 absolute bg-lime-200 w-[150px]', className)}>
+    <ul className={clsx('border border-lime-700  border-t-0 bg-lime-200 w-[150px]', className)}>
            <li>
              <button
               className="w-full flex items-center gap-2 px-3 py-2 text-sm
