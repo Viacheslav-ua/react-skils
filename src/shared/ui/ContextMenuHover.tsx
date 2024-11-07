@@ -10,14 +10,15 @@ type ContextMenuHoverProps = {
 export const ContextMenuHover: React.FC<ContextMenuHoverProps> = ({
   ContextMenuTrigger, 
   ContextMenuContent, 
-  className}) => {
+  className,
+}) => {
   
     const [isContentOpen, setIsContentOpen] = useState(false);
 
     return (
     <div
     data-testid="block-context-menu"
-    className={clsx('relative group border', className)}
+    className={clsx('relative group', className)}
     onMouseEnter={() => setIsContentOpen(true)}
     onMouseLeave={() => setIsContentOpen(false)}
     >
@@ -25,7 +26,7 @@ export const ContextMenuHover: React.FC<ContextMenuHoverProps> = ({
       { isContentOpen && <section 
         data-testid="content-menu"
         className={clsx(
-          "absolute border w-min group opacity-0 transition-opacity duration-500 ",
+          "absolute w-min group opacity-0 transition-opacity duration-500 ",
           isContentOpen ? "opacity-100" : "opacity-0",
         )}
       >

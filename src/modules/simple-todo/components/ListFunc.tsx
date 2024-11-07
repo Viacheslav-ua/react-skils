@@ -22,7 +22,7 @@ export const ListFunc = ({className}: {className?: string}) => {
 
   return (
     <ul className={clsx('border border-lime-700  border-t-0 absolute bg-lime-200 w-[150px]', className)}>
-           <li data-testid="item-func">
+           <li>
              <button
               className="w-full flex items-center gap-2 px-3 py-2 text-sm
                hover:bg-gray-300 dark:text-black dark:hover:bg-gray-300"
@@ -31,7 +31,7 @@ export const ListFunc = ({className}: {className?: string}) => {
               {t('SelectAll')}
             </button>
           </li>
-          <li data-testid="item-func">
+          <li>
             <button
               className="w-full flex items-center gap-2 px-3 py-2 text-sm 
               hover:bg-gray-300 dark:text-black dark:hover:bg-gray-300"
@@ -40,7 +40,7 @@ export const ListFunc = ({className}: {className?: string}) => {
               {t('ClearAll')}
             </button>
           </li>
-          <li data-testid="item-func">
+          <li>
             <button
               className="w-full flex items-center gap-2 px-3 py-2 text-sm 
               hover:bg-gray-300 dark:text-black dark:hover:bg-gray-300"
@@ -49,7 +49,7 @@ export const ListFunc = ({className}: {className?: string}) => {
              {t('DeleteSelected')}
             </button>
           </li>
-          <li data-testid="item-func">
+          <li>
             <button
               className="w-full flex items-center gap-2 px-3 py-2 text-sm 
               hover:bg-gray-300 dark:text-black dark:hover:bg-gray-300"

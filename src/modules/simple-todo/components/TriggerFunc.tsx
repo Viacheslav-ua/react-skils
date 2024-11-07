@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { SquareFunction } from "lucide-react";
 
 export const TriggerFunc = () => 
