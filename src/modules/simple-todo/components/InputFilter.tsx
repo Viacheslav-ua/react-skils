@@ -24,7 +24,8 @@ export const InputFilter: React.FC<InputFilterProps> = ({ setFilter, className }
   return (
     <div className={clsx('w-full flex' ,className)}>
       <input 
-        type="text" 
+        type="text"
+        data-testid="filter-input" 
         placeholder={t('Filter')} 
         onChange={e => setValue(e.target.value)}
         value={value}
