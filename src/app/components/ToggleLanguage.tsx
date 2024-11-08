@@ -17,14 +17,14 @@ export const ToggleLanguage = () => {
   return (
     <ContextMenuHover
       ContextMenuTrigger={
-        () => <p className="flex items-center gap-3 p-2 ">
+        () => <p className="flex items-center gap-3 p-2 " data-testid="block-toggle-language">
           {t('Language')}
           {(lang === 'en') && <FlagEn />}
           {(lang === 'uk') && <FlagUk />}
         </p>
       }
       ContextMenuContent={() =>
-        <ul className="border border-t-0  bg-white">
+        <ul className="border border-t-0  bg-white" data-testid="content-menu-language">
           <li>
             <button
               className="w-full flex items-center gap-2 px-3 py-2 text-sm

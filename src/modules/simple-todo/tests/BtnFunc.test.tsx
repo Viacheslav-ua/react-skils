@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { render, screen, fireEvent, RenderResult} from "@testing-library/react";
 import { BtnFunc } from "../components/BtnFunc";
 
-describe('Тестируем InputPlus', () => {
+describe('Тестируем BtnFunc', () => {
   let renderOption: RenderResult;
   let blockContextMenu: HTMLDivElement;
   
