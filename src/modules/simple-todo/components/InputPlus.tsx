@@ -31,6 +31,7 @@ export const InputPlus = () => {
         />
       <button
         type="submit"
+        data-testid="add-task-btn"
         aria-label="Add task"
         title="Add task"
         className='border-none w-[60px] flex justify-center items-center rounded-r-[5px] 
