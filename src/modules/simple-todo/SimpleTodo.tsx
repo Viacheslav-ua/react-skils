@@ -10,7 +10,7 @@ import { useTodoStore } from "./store/useTodoStore"
 
 const entitiesSelector = (state: SimpleTodoStore) => state.entities
 
-export const SimpleTodo = ({ className }: { className?: string }) => {
+export const SimpleTodo = ({ className, ...props }: { className?: string }) => {
   const [filter, setFilter] = useState('')
   const entities = useTodoStore(entitiesSelector)
   const { t } = useTranslation()
@@ -20,7 +20,7 @@ export const SimpleTodo = ({ className }: { className?: string }) => {
     : entities.filter(task => task.title.toLowerCase().includes(filter.toLowerCase()))
 
   return (
-    <article className={clsx(
+    <article {...props} className={clsx(
       'bg-white min-w-[600px] px-14 pt-5 pb-8 flex flex-col',
       ' items-left justify-center',
       className,
