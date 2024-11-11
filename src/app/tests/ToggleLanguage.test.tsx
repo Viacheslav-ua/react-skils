@@ -1,13 +1,12 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { render, screen, fireEvent, RenderResult} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { ToggleLanguage } from "../components/ToggleLanguage";
 
 describe('Тестируем ToggleLanguage', () => {
-  let renderOption: RenderResult;
   let blockContextMenu: HTMLDivElement;
   
   beforeEach(() => {
-    renderOption = render(<ToggleLanguage  />)
+    render(<ToggleLanguage  />)
     blockContextMenu = screen.getByTestId('block-toggle-language')
   })
 

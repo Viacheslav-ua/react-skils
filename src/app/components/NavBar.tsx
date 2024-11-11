@@ -9,9 +9,9 @@ export const NavBar = ({className}: {className?: string}) => {
   
   return (
     <nav className={clsx('flex items-center gap-2 w-max', className)}>
-      <LinkNavBar to={ROUTE_PATH.HOME}>{t('About')}</LinkNavBar>      
-      <LinkNavBar to={ROUTE_PATH.SIMPLE_TODO}>{t('Simple')}</LinkNavBar>
-      <LinkNavBar to={ROUTE_PATH.ADVANCED_TODO}>{t('Advanced')}</LinkNavBar>
+      <LinkNavBar to={ROUTE_PATH.HOME} data-testid="link-home">{t('About')}</LinkNavBar>      
+      <LinkNavBar to={ROUTE_PATH.SIMPLE_TODO} data-testid="link-simple-todo">{t('Simple')}</LinkNavBar>
+      <LinkNavBar to={ROUTE_PATH.ADVANCED_TODO} data-testid="link-advanced-todo">{t('Advanced')}</LinkNavBar>
     </nav>
   )
 }

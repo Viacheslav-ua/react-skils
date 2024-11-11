@@ -5,12 +5,11 @@ import { InputPlus } from "../components/InputPlus";
 import { useTodoStore } from "../store/useTodoStore";
 
 describe('Тестируем InputPlus', () => {
-  let renderOption;
   let input: HTMLInputElement;
   let addButton: HTMLButtonElement;
   
   beforeEach(() => {
-    renderOption = render(<InputPlus />)
+    render(<InputPlus />)
     input = screen.getByTestId('new-todo-input')
     addButton = screen.getByTestId('add-task-btn')
   })

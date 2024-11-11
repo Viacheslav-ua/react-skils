@@ -15,7 +15,7 @@ export const Header = ({className}: {className?: string}) => {
         <div className="">
 
         </div>
-        <ToggleLanguage className="ml-4 min-w-[120px]" />
+        <ToggleLanguage />
         <ToggleTheme className="ml-4 mr-12" />
       </div>
     </header>
