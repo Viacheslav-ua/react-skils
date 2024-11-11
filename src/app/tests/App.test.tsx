@@ -1,11 +1,10 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
 import {BrowserRouter, MemoryRouter} from 'react-router-dom'
 import { App } from "app/App";
 
 describe('Тестируем Router', () => {
-
   
   it('Полный рендеринг/навигация приложения', async () => {
     render(<App />, {wrapper: BrowserRouter})

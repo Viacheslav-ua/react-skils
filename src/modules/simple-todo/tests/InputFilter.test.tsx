@@ -4,12 +4,11 @@ import userEvent from "@testing-library/user-event";
 import { InputFilter } from "../components/InputFilter";
 
 describe('Тестируем InputFilter', () => {
-  let renderOption;
   let input: HTMLInputElement;
   const setFilterSpy =  vi.fn();
     
   beforeEach(() => {
-    renderOption = render(<InputFilter setFilter={setFilterSpy} />)
+    render(<InputFilter setFilter={setFilterSpy} />)
     input = screen.getByTestId('filter-input')
   })
 
