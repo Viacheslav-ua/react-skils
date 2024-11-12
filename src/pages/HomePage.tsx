@@ -26,7 +26,7 @@ export const HomePage = () => {
         <div className='flex justify-center mt-8'>
           <a href="https://github.com/Viacheslav-ua/react-skills" 
             className="flex items-center gap-2" target="_blank">
-              <img src="https://github.com/fluidicon.png" className="w-8 h-8 " alt="GitHub" />
+              <img src="./github_logo.svg" className="w-8 h-8 " alt="GitHub" />
               {t('ProjectCode')}
           </a>
         </div>
