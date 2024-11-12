@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { ToggleLanguage } from "../components/ToggleLanguage";
+import { ToggleLanguage } from "../ui/ToggleLanguage";
 
 describe('Тестируем ToggleLanguage', () => {
   let blockContextMenu: HTMLDivElement;

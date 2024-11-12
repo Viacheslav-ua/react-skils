@@ -1,7 +1,7 @@
 // import { useTranslation } from 'react-i18next'
 import { Route, Routes } from 'react-router-dom'
 import { ROUTE_PATH } from 'shared/constants/routes'
-import { Layout } from './components/Layout'
+import { Layout } from './Layout'
 import { HomePage } from 'pages/HomePage'
 import { SimpleTodoPage } from 'pages/SimpleTodoPage'
 import { AdvancedTodoPage } from 'pages/AdvancedTodoPage'

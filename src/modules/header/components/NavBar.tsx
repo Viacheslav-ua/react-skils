@@ -1,5 +1,5 @@
 import { ROUTE_PATH } from "shared/constants/routes"
-import { LinkNavBar } from "./LinkNavBar"
+import { LinkNavBar } from "shared/ui/LinkNavBar"
 import { useTranslation } from 'react-i18next'
 import clsx from "clsx"
 

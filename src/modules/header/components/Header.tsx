@@ -1,8 +1,8 @@
 import clsx from "clsx"
-import { Logo } from "./Logo"
+import { Logo } from "shared/ui/Logo"
 import { NavBar } from "./NavBar"
-import { ToggleLanguage } from "./ToggleLanguage"
-import { ToggleTheme } from "./ToggleTheme"
+import { ToggleLanguage } from "../../../shared/ui/ToggleLanguage"
+import { ToggleTheme } from "../../../shared/ui/ToggleTheme"
 
 export const Header = ({className}: {className?: string}) => {
   return (
