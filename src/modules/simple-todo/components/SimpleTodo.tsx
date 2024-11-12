@@ -1,12 +1,12 @@
 import clsx from "clsx"
 import { useTranslation } from 'react-i18next'
-import { InputPlus } from "./components/InputPlus"
-import { TaskItem } from "./components/TaskItem"
-import { BtnFunc } from "./components/BtnFunc"
-import { InputFilter } from "./components/InputFilter"
+import { InputPlus } from "./InputPlus"
+import { TaskItem } from "./TaskItem"
+import { BtnFunc } from "./BtnFunc"
+import { InputFilter } from "./InputFilter"
 import { useState } from "react"
-import { SimpleTodoStore } from "./store/types"
-import { useTodoStore } from "./store/useTodoStore"
+import { SimpleTodoStore } from "../store/types"
+import { useTodoStore } from "../store/useTodoStore"
 
 const entitiesSelector = (state: SimpleTodoStore) => state.entities
 

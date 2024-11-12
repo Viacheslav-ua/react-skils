@@ -1,4 +1,4 @@
-export const appEn = {
+export const headerEn = {
   About: "About",
   Simple: "Simple Todo",
   Advanced: "Advanced Todo",
@@ -7,7 +7,7 @@ export const appEn = {
   Ukrainian: "Ukrainian",
 }
 
-export const appUk = {
+export const headerUk = {
   About: "Про сайт",
   Simple: "Простий Todo",
   Advanced: "Розширенний Todo",

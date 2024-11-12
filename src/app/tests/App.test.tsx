@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
 import {BrowserRouter, MemoryRouter} from 'react-router-dom'
-import { App } from "app/App";
+import { App } from "app";
 
 describe('Тестируем Router', () => {
   

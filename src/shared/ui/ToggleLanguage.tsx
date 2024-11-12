@@ -2,8 +2,8 @@
 import i18next, { t } from "i18next"
 import { useState } from "react";
 import { STORAGE } from "shared/constants/storage-keys";
-import { ContextMenuHover } from "shared/ui/ContextMenuHover";
-import { FlagEn, FlagUk } from "shared/ui/Flags";
+import { ContextMenuHover } from "./ContextMenuHover";
+import { FlagEn, FlagUk } from "./Flags";
 
 export const ToggleLanguage = () => {
   const [lang, setLang] = useState(i18next.language)
