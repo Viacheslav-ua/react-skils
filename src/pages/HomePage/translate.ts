@@ -1,4 +1,4 @@
-export const pagesEn = {
+export const aboutEn = {
   About: "About",
   AboutProject: "This pet-project is designed to practice programming skills using React. " +
     "I began doing its with a simple To Do list and plan to continue by adding new features and " +
@@ -8,7 +8,7 @@ export const pagesEn = {
   ProjectCode: "Project code",
 }
 
-export const pagesUk = {
+export const aboutUk = {
   About: "Про проект",
   AboutProject: "Цей проект створений для відпрацювання навичок програмування з використанням React. " +
     "Я почав його з простого списка To Do і планую далі додавати інші функції, " +
