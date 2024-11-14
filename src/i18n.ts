@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { STORAGE } from "shared/constants/storage-keys";
 import { simpleTodoEn, simpleTodoUk } from "modules/simple-todo";
-import { pagesEn, pagesUk } from "pages/translate";
+import { aboutEn, aboutUk } from "pages";
 import { headerEn, headerUk } from "modules/header";
 
 const resources = {
@@ -10,7 +10,7 @@ const resources = {
     translation: Object.assign({}, 
     headerEn, 
     simpleTodoEn,
-    pagesEn,
+    aboutEn,
 
     )
   },
@@ -18,7 +18,7 @@ const resources = {
     translation: Object.assign({}, 
     headerUk, 
     simpleTodoUk,
-    pagesUk,
+    aboutUk,
 
     )
   }

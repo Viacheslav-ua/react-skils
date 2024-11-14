@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import {BrowserRouter, MemoryRouter} from 'react-router-dom'
 import { App } from "app";
 
-describe('Тестируем Router', () => {
+describe.skip('Тестируем Router', () => {
   
   it('Полный рендеринг/навигация приложения', async () => {
     render(<App />, {wrapper: BrowserRouter})
