@@ -1,0 +1,25 @@
+{
+	"RC clsx react-skills": {
+		"scope": "typescriptreact",
+		"prefix": "rcc",
+		"body": [
+			"import { FC } from 'react'",
+			"import clsx from 'clsx'",
+			"import * as cls from './$TM_FILENAME_BASE.module.scss'",
+			"",
+			"interface ${TM_FILENAME_BASE}Props {",
+  		"  className?: string",
+			"}",
+			"",
+			"export const ${TM_FILENAME_BASE}: FC<${TM_FILENAME_BASE}Props> = ({ className }) => {",
+
+  		"  return (",
+    	"    <div className={clsx('$1', className)}>",
+      "      $2${TM_FILENAME_BASE}",		        
+    	"    </div>",
+  		"  )",
+			"}"
+		],
+		"description": "prod-proj"
+	}
+}
