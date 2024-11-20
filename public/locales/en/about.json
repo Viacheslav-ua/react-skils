@@ -1,0 +1,7 @@
+{
+  "About": "About",
+  "AboutProject": "This pet-project is designed to practice programming skills using React. I began doing its with a simple To Do list and plan to continue by adding new features and immersing themselves in React technologies on the other pages. ",
+
+  "MainStack": "The main project stack: React, TS, Tailwind, Zustand, TanStack Query, Vite, Vitest ",
+  "ProjectCode": "Project code"
+}

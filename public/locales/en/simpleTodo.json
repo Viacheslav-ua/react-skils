@@ -1,0 +1,11 @@
+{
+  "ToDoList": "To do list",
+  "HereAddTask": "Here you can add a new task...",
+  "Filter": "Filter...",
+  "NoOneTask": "There is no one task yet...",
+  "SelectAll": "Select all",
+  "ClearAll": "Clear all",
+  "DeleteSelected": "Delete selected",
+  "ResetStorage": "Reset storage",
+  "AboutSimpleTodo": "Here is a simple To Do list implemented using Zustand and the data is stored in the Local Storage."
+}

@@ -10,7 +10,7 @@ export const InputPlus = () => {
   const [valueTitle, setValueTitle] = useState('');
   const addTask = useTodoStore(addTaskSelector)
 
-  const { t } = useTranslation()
+  const { t } = useTranslation('simpleTodo')
 
   return (
     <form className='w-full flex'

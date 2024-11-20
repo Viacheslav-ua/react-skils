@@ -2,16 +2,16 @@ import { useTranslation } from 'react-i18next'
 
 
 export const HomePage = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('about')
   return (
     <article data-testid="home-page">
       <h1 className='text-4xl dark:text-slate-200 text-center my-8'>{t('About')}</h1>
 
       <div className='max-w-[800px] bg-lime-200 p-6 mb-8 mx-auto rounded-2xl shadow-md text-lg'>
-        <p className=''>
+        <p className='indent-8'>
           {t('AboutProject')}
         </p>
-        <p>
+        <p className='mt-4 indent-8'>
           {t('MainStack')}
         </p>
         <div className='flex justify-center gap-8 mt-10' >
