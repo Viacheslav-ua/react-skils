@@ -13,7 +13,7 @@ const entitiesSelector = (state: SimpleTodoStore) => state.entities
 export const SimpleTodo = ({ className, ...props }: { className?: string }) => {
   const [filter, setFilter] = useState('')
   const entities = useTodoStore(entitiesSelector)
-  const { t } = useTranslation()
+  const { t } = useTranslation('simpleTodo')
 
   const filteredEntities = ( filter === '') 
     ? entities 

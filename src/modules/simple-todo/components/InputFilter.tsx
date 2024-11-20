@@ -13,7 +13,7 @@ export const InputFilter: React.FC<InputFilterProps> = ({ setFilter, className }
 
   const [value, setValue] = useState('');
   const debouncedValue = useDebounce(value, 600)
-  const { t } = useTranslation()
+  const { t } = useTranslation('simpleTodo')
 
   useEffect(() => {
     setFilter(debouncedValue)

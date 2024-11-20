@@ -18,7 +18,7 @@ export const ListFunc = ({className}: {className?: string}) => {
   const removeAllSelected = useTodoStore(removeAllSelectedSelector);
   const selectAll = useTodoStore(selectAllSelector);
   const clearAll = useTodoStore(clearAllSelector);
-  const { t } = useTranslation();
+  const { t } = useTranslation('simpleTodo');
 
   return (
     <ul className={clsx('border border-lime-700  border-t-0 bg-lime-200 w-[150px]', className)}>
