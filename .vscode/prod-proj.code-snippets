@@ -5,7 +5,6 @@
 		"body": [
 			"import { FC } from 'react'",
 			"import clsx from 'clsx'",
-			"import * as cls from './$TM_FILENAME_BASE.module.scss'",
 			"",
 			"interface ${TM_FILENAME_BASE}Props {",
   		"  className?: string",
