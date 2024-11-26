@@ -1,12 +1,13 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import { BtnFunc } from "../components/BtnFunc";
+import { renderWithTranslation } from "shared/lib/tests/renderWithTranslation";
 
 describe('Тестируем BtnFunc', () => {
   let blockContextMenu: HTMLDivElement;
   
   beforeEach(() => {
-    render(<BtnFunc  />)
+    renderWithTranslation(<BtnFunc  />)
     blockContextMenu = screen.getByTestId('block-context-menu')
   })
 
