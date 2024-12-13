@@ -18,6 +18,6 @@ describe('Тестируем BtnFunc', () => {
 
   it('При наведении курсора - открыывается меню функций', () => {
     fireEvent.mouseEnter(blockContextMenu)
-    expect(screen.getByTestId('content-menu')).toBeTruthy
+    expect(screen.getByTestId('content-menu')).toBeTruthy()
   })
 })
