@@ -61,7 +61,7 @@ export const Modal: FC<ModalProps> = (props) => {
         )} onClick={closeHandler}>
           <div onClick={contentClickHandler}
             className={clsx(
-              'p-6 rounded-xl bg-slate-200',
+              'p-6 rounded-xl bg-cyan-950 text-slate-200',
               isOpen && 'animate-zoomIn',
               isClosing && 'animate-zoomOut',
             )}
