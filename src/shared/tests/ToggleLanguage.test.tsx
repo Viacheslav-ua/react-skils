@@ -17,6 +17,6 @@ describe('Тестируем ToggleLanguage', () => {
 
   it('При наведении курсора - открыывается menu language', () => {
     fireEvent.mouseEnter(blockContextMenu)
-    expect(screen.getByTestId('content-menu-language')).toBeTruthy
+    expect(screen.getByTestId('content-menu-language')).toBeTruthy()
   })
 })

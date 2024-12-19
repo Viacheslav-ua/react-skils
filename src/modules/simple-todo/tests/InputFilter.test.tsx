@@ -1,14 +1,15 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { InputFilter } from "../components/InputFilter";
+import { renderWithTranslation } from "shared/lib/tests/renderWithTranslation";
 
 describe('Тестируем InputFilter', () => {
   let input: HTMLInputElement;
   const setFilterSpy =  vi.fn();
     
   beforeEach(() => {
-    render(<InputFilter setFilter={setFilterSpy} />)
+    renderWithTranslation(<InputFilter setFilter={setFilterSpy} />)
     input = screen.getByTestId('filter-input')
   })
 

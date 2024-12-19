@@ -25,10 +25,10 @@ export const SimpleTodo = ({ className, ...props }: { className?: string }) => {
       ' items-left justify-center',
       className,
     )}>
-
+            
       <div className="relative">
         <h1 className="text-[40px] mb-[0.3em] capitalize dark:text-lime-200">{t('ToDoList')}</h1>
-        <p className="text-sm px-6 py-2 rounded-lg absolute top-[-10px] left-[450px]  bg-lime-200">
+        <p className="text-sm px-6 py-2 rounded-lg absolute top-[-8px] left-[450px]  bg-lime-200">
           {t('AboutSimpleTodo')}
         </p>
       </div>

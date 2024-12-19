@@ -6,5 +6,10 @@
     "paralleldrive",
     "testid",
     "zustand"
+  ],
+  "i18next.i18nPaths": "d:/GitHubRepoz/react-skills/public/locales,d:/GitHubRepoz/react-skills/src/shared/config/i18n",
+  "i18n-ally.localesPaths": [
+    "public/locales",
+    "src/shared/config/i18n"
   ]
 }

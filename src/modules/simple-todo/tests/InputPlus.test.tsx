@@ -1,15 +1,16 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { InputPlus } from "../components/InputPlus";
 import { useTodoStore } from "../store/useTodoStore";
+  import { renderWithTranslation } from "shared/lib/tests/renderWithTranslation";
 
 describe('Тестируем InputPlus', () => {
   let input: HTMLInputElement;
   let addButton: HTMLButtonElement;
   
   beforeEach(() => {
-    render(<InputPlus />)
+    renderWithTranslation(<InputPlus />)
     input = screen.getByTestId('new-todo-input')
     addButton = screen.getByTestId('add-task-btn')
   })

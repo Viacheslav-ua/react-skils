@@ -17,7 +17,7 @@ export const InputFilter: React.FC<InputFilterProps> = ({ setFilter, className }
 
   useEffect(() => {
     setFilter(debouncedValue)
-  }, [debouncedValue])
+  }, [debouncedValue, setFilter])
 
 
  
