@@ -1,4 +1,4 @@
-import { FC, memo, useEffect, useRef, useState } from 'react'
+import { FC, memo, useEffect, useRef } from 'react'
 import clsx from 'clsx'
 
 type HTMLInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
