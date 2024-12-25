@@ -5,14 +5,13 @@ import { TaskItem } from "./TaskItem"
 import { BtnFunc } from "./BtnFunc"
 import { InputFilter } from "./InputFilter"
 import { useState } from "react"
-import { SimpleTodoStore } from "../store/types"
 import { useTodoStore } from "../store/useTodoStore"
+import { getEntitiesSelector } from "../store/selectors"
 
-const entitiesSelector = (state: SimpleTodoStore) => state.entities
 
 export const SimpleTodo = ({ className, ...props }: { className?: string }) => {
   const [filter, setFilter] = useState('')
-  const entities = useTodoStore(entitiesSelector)
+  const entities = useTodoStore(getEntitiesSelector)
   const { t } = useTranslation('simpleTodo')
 
   const filteredEntities = ( filter === '') 

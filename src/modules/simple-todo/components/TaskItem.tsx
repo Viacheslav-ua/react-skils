@@ -1,11 +1,12 @@
 import { Trash2, Pencil, X, Check } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useTodoStore } from '../store/useTodoStore';
-import { SimpleTodoStore } from '../store/types';
+import { 
+  setIsSelectedSelector, 
+  updateTaskSelector, 
+  removeTaskSelector 
+} from '../store/selectors';
 
-const removeTaskSelector = (state: SimpleTodoStore) => state.removeTask
-const updateTaskSelector = (state: SimpleTodoStore) => state.updateTask
-const setIsSelectedSelector = (state: SimpleTodoStore) => state.setIsSelected
 interface TaskItemProps {
   id: string
   title: string

@@ -7,15 +7,17 @@ interface ModalProps {
   children?: React.ReactNode
   isOpen?: boolean
   onClose?: () => void
+  lazy?: boolean
 }
 
 const ANIMATION_DELAY = 300
 
 export const Modal: FC<ModalProps> = (props) => {
 
-  const { className, children, isOpen, onClose } = props
+  const { className, children, isOpen, lazy, onClose } = props
 
   const [isClosing, setIsClosing] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
   const contentClickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -47,6 +49,16 @@ export const Modal: FC<ModalProps> = (props) => {
       window.removeEventListener('keydown', keydownHandler)
     }
   }, [isOpen, keydownHandler])
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true)
+    }
+  }, [isOpen])
+
+  if (lazy && !isMounted) {
+    return null
+  }
 
   return (
     <Portal>

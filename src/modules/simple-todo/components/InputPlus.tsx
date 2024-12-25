@@ -1,24 +1,25 @@
 import { Plus } from 'lucide-react';
-import { useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTodoStore } from '../store/useTodoStore';
 import { useTranslation } from 'react-i18next'
-import { SimpleTodoStore } from '../store/types';
+import { addTaskSelector } from '../store/selectors';
 
-const addTaskSelector = (state: SimpleTodoStore) => state.addTask
-export const InputPlus = () => {
+export const InputPlus = memo(() => {
 
   const [valueTitle, setValueTitle] = useState('');
-  const addTask = useTodoStore(addTaskSelector)
+  const addTask = useTodoStore(addTaskSelector);
 
-  const { t } = useTranslation('simpleTodo')
+  const { t } = useTranslation('simpleTodo');
+
+  const onSubmitInput = useCallback((event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+        addTask(valueTitle);
+        setValueTitle('');
+  }, [addTask, valueTitle]);
 
   return (
     <form className='w-full flex'
-      onSubmit={(event) => {
-        event.preventDefault();
-        addTask(valueTitle);
-        setValueTitle('');
-      }}
+      onSubmit={onSubmitInput}
     >
       <input 
         type="text"
@@ -39,4 +40,4 @@ export const InputPlus = () => {
         ><Plus size={28} /></button>
     </form>
   )
-}
+})

@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { useTodoStore } from "../store/useTodoStore";
-import { SimpleTodoStore } from "../store/types";
 import { STORAGE } from "shared/constants/storage-keys";
 import clsx from "clsx";
-
-const removeAllSelectedSelector = (state: SimpleTodoStore) => state.removeAllSelected
-const selectAllSelector = (state: SimpleTodoStore) => state.selectAll
-const clearAllSelector = (state: SimpleTodoStore) => state.clearAll
+import { 
+  clearAllSelector, 
+  removeAllSelectedSelector, 
+  selectAllSelector 
+} from "../store/selectors";
 
 const handleResetStorage = () => {
   localStorage.removeItem(STORAGE.SIMPLE_TODO)
