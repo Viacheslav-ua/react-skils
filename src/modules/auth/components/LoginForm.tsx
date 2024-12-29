@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import clsx from 'clsx'
 import { useTranslation } from 'react-i18next'
 import { Input } from 'shared/ui/Input'

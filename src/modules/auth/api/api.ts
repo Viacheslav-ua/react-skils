@@ -1,4 +1,3 @@
-import { User } from "entities/user/model/type"
 import { jsonApiInstance } from "shared/api/api-instance"
 import { ENDPOINT } from "shared/constants/api-routes"
 
