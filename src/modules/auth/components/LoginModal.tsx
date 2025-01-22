@@ -1,7 +1,8 @@
-import { FC } from 'react'
+import { FC, Suspense } from 'react'
 import clsx from 'clsx'
 import { Modal } from 'shared/ui/Modal'
-import { LoginForm } from './LoginForm'
+import { LoginFormAsync } from './LoginForm.async'
+import { Loader } from 'shared/ui/Loader'
 
 interface LoginModalProps {
   className?: string
@@ -16,7 +17,9 @@ export const LoginModal: FC<LoginModalProps> = ({ className, isOpen, onClose }) 
       isOpen={isOpen} 
       onClose={onClose} 
       className={clsx('', className)}>
-      <LoginForm onClose={onClose} />
+      <Suspense fallback={<Loader />}>  
+        <LoginFormAsync onClose={onClose} />
+      </Suspense>
     </Modal>
   )
 }

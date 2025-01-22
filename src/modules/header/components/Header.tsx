@@ -4,7 +4,7 @@ import { NavBar } from "./NavBar"
 import { ToggleLanguage } from "shared/ui/ToggleLanguage"
 import { ToggleTheme } from "shared/ui/ToggleTheme"
 import { useCallback, useState } from "react"
-import { LoginModal } from "modules/auth/components/LoginModal"
+import { LoginModal } from "modules/auth"
 
 export const Header = ({ className }: { className?: string }) => {
 
