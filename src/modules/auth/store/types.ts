@@ -1,14 +1,17 @@
-type AuthDto = {
-  name: string;
-  password: string;
-  isLoading: boolean;
-  error?: string;
+type AuthDataDto = {
+  login: string
+  password: string
 }
 
+
 export interface AuthStore {
-  auth: AuthDto;
+  auth: AuthDataDto
+  // isAuth: boolean
+  // isLoading: boolean
+  error: string | null
   
-  login: (name: string, password: string) => void;
+  login: (authData: AuthDataDto) => void;
   logout: () => void;
+
 }
 
